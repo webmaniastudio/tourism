@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>گردش‌آوا | ماجراجویی بعدی‌ات را پیدا کن</title>
+  <meta name="description" content="پلتفرم رزرو تور و سفر با مقاصد محبوب، پیشنهادهای ویژه و محتوای الهام‌بخش برای گردشگران." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css?v=1.3" />
+</head>
+<body>
+  <header class="site-header reveal">
+    <div class="container nav-row">
+      <a class="brand" href="#"><i class="fa-solid fa-compass"></i> وب مانیا</a>
+      <nav class="nav-desktop" aria-label="primary">
+        <a href="#destinations" class="nav-link">مقاصد</a>
+        <a href="#tours" class="nav-link">تورهای ویژه</a>
+        <a href="#blog" class="nav-link">مجله سفر</a>
+        <a href="#contact" class="nav-link">تماس</a>
+      </nav>
+      <div class="nav-actions">
+        <!-- دکمه تغییر تم با انیمیشن -->
+        <button class="btn-icon" id="themeToggle" aria-label="تغییر به تم تاریک">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a class="btn ghost" href="#">ورود</a>
+        <a class="btn primary" href="#">ثبت‌نام</a>
+        <button class="hamburger" aria-label="منوی موبایل">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1 class="animate-in" style="--d:.05s">ماجراجویی بعدی‌ات را اینجا پیدا کن</h1>
+          <p class="animate-in" style="--d:.15s">تورهای طبیعت‌گردی، ساحلی و شهری با راهنمایان حرفه‌ای و ضمانت بهترین قیمت.</p>
+
+          <form class="search-bar animate-in" style="--d:.25s" id="searchForm" aria-label="جستجوی تور">
+            <div class="field">
+              <i class="fa-solid fa-location-dot"></i>
+              <input id="qDest" type="text" placeholder="مقصد (مثلاً: استانبول، کیش...)" />
+            </div>
+            <div class="field">
+              <i class="fa-solid fa-calendar-days"></i>
+              <input id="qDate" type="date" />
+            </div>
+            <div class="field">
+              <i class="fa-solid fa-user-group"></i>
+              <input id="qPeople" type="number" min="1" value="2" />
+            </div>
+            <button class="btn primary" type="submit" aria-label="جستجو">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+
+          <!-- توجه: برای شروع شمارنده‌ها کلاس reveal اضافه شد -->
+          <div class="stats reveal animate-in" style="--d:.35s">
+            <div class="stat"><span class="num" data-target="120">0</span><span>مقصد</span></div>
+            <div class="stat"><span class="num" data-target="380">0</span><span>تور فعال</span></div>
+            <div class="stat"><span class="num" data-target="54000">0</span><span>کاربر</span></div>
+          </div>
+        </div>
+
+        <div class="hero-media animate-in" style="--d:.25s">
+          <div class="glass">
+            <img loading="lazy" decoding="async"
+                 src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1000&h=625&q=80"
+                 alt="نمایی از سفر و گردش" onerror="this.src='https://picsum.photos/seed/travel-hero/1000/625'"/>
+            <div class="badge"><i class="fa-solid fa-bolt"></i> پیشنهاد داغ</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Destinations -->
+    <section id="destinations" class="destinations">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>مقاصد محبوب</h2>
+          <a class="link-more" href="#">مشاهده همه</a>
+        </div>
+
+        <div class="dest-grid">
+          <article class="dest-card reveal" style="--d:.05s">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&h=600&q=80" alt="استانبول" onerror="this.src='https://picsum.photos/seed/istanbul/900/600'"/>
+            <div class="overlay"><h3>استانبول</h3><p><i class="fa-solid fa-sun"></i> ۴ روز • از ۹,۹۰۰,۰۰۰ تومان</p></div>
+          </article>
+
+          <article class="dest-card reveal" style="--d:.15s">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&h=600&q=80" alt="پاریس" onerror="this.src='https://picsum.photos/seed/paris/900/600'"/>
+            <div class="overlay"><h3>پاریس</h3><p><i class="fa-solid fa-sun"></i> ۵ روز • از ۳۲,۰۰۰,۰۰۰ تومان</p></div>
+          </article>
+
+          <article class="dest-card reveal" style="--d:.25s">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=900&h=600&q=80" alt="شیراز" onerror="this.src='https://picsum.photos/seed/shiraz/900/600'"/>
+            <div class="overlay"><h3>شیراز</h3><p><i class="fa-solid fa-sun"></i> ۳ روز • از ۴,۲۰۰,۰۰۰ تومان</p></div>
+          </article>
+
+          <article class="dest-card reveal" style="--d:.35s">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=900&h=600&q=80" alt="مالدیو" onerror="this.src='https://picsum.photos/seed/maldives/900/600'"/>
+            <div class="overlay"><h3>مالدیو</h3><p><i class="fa-solid fa-sun"></i> ۶ روز • از ۷۸,۰۰۰,۰۰۰ تومان</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tours -->
+    <section id="tours" class="tours">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>تورهای ویژه</h2>
+          <div class="arrows">
+            <button class="nav prev" aria-label="قبلی"><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="nav next" aria-label="بعدی"><i class="fa-solid fa-chevron-left"></i></button>
+          </div>
+        </div>
+
+        <div class="track" id="tourTrack">
+          <article class="tour-card reveal" style="--d:.05s">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&h=500&q=80" alt="کیش" onerror="this.src='https://picsum.photos/seed/kish/800/500'"/>
+            <div class="tour-body">
+              <span class="tag">داخلی</span>
+              <h3>تور کیش هتل ۵ ستاره</h3>
+              <p class="meta"><i class="fa-regular fa-clock"></i> ۳ شب • <i class="fa-solid fa-bus"></i> رفت‌وبرگشت</p>
+              <div class="bottom"><span class="price">از ۵,۹۰۰,۰۰۰</span><span class="rating"><i class="fa-solid fa-star"></i> 4.8</span></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" style="--d:.15s">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&h=500&q=80" alt="پاریس" onerror="this.src='https://picsum.photos/seed/paris2/800/500'"/>
+            <div class="tour-body">
+              <span class="tag">اروپا</span>
+              <h3>تور پاریس + ورسای</h3>
+              <p class="meta"><i class="fa-regular fa-clock"></i> ۵ شب • <i class="fa-solid fa-plane"></i> پرواز مستقیم</p>
+              <div class="bottom"><span class="price">از ۳۴,۰۰۰,۰۰۰</span><span class="rating"><i class="fa-solid fa-star"></i> 4.9</span></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" style="--d:.25s">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&h=500&q=80" alt="کاشان" onerror="this.src='https://picsum.photos/seed/kashan/800/500'"/>
+            <div class="tour-body">
+              <span class="tag">فرهنگی</span>
+              <h3>گردش یک‌روزه کاشان و ابیانه</h3>
+              <p class="meta"><i class="fa-regular fa-clock"></i> یک‌روزه • <i class="fa-solid fa-van-shuttle"></i> VIP</p>
+              <div class="bottom"><span class="price">از ۹۹۰,۰۰۰</span><span class="rating"><i class="fa-solid fa-star"></i> 4.6</span></div>
+            </div>
+          </article>
+
+          <article class="tour-card reveal" style="--d:.35s">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&h=500&q=80" alt="استانبول" onerror="this.src='https://picsum.photos/seed/ist/800/500'"/>
+            <div class="tour-body">
+              <span class="tag">خارجی</span>
+              <h3>استانبول خرید و تفریح</h3>
+              <p class="meta"><i class="fa-regular fa-clock"></i> ۴ شب • <i class="fa-solid fa-plane"></i> پرواز چارتر</p>
+              <div class="bottom"><span class="price">از ۱۲,۴۰۰,۰۰۰</span><span class="rating"><i class="fa-solid fa-star"></i> 4.7</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="blog">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>مجله سفر</h2>
+          <a class="link-more" href="#">مطالب بیشتر</a>
+        </div>
+
+        <div class="blog-grid">
+          <article class="post reveal" style="--d:.05s">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&h=600&q=80" alt="راهنمای سفر" onerror="this.src='https://picsum.photos/seed/blog1/900/600'"/>
+            <div class="post-body">
+              <h3>راهنمای کامل بستن چمدان برای سفرهای کوتاه</h3>
+              <p>چطور سبک سفر کنیم و هیچ چیز مهمی را از قلم نیندازیم.</p>
+              <a href="#" class="post-link">ادامه مطلب</a>
+            </div>
+          </article>
+
+          <article class="post reveal" style="--d:.15s">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=900&h=600&q=80" alt="طبیعت" onerror="this.src='https://picsum.photos/seed/blog2/900/600'"/>
+            <div class="post-body">
+              <h3>۵ مقصد طبیعت‌گردی خنک برای تابستان</h3>
+              <p>پیشنهادهایی برای فرار از گرما و تجربه هوای مطبوع.</p>
+              <a href="#" class="post-link">ادامه مطلب</a>
+            </div>
+          </article>
+
+          <article class="post reveal" style="--d:.25s">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&h=600&q=80" alt="اروپا" onerror="this.src='https://picsum.photos/seed/blog3/900/600'"/>
+            <div class="post-body">
+              <h3>تکنیک‌های خرید بلیت ارزان اروپا</h3>
+              <p>از زمان خرید تا انتخاب مسیر، همه فوت و فن‌ها.</p>
+              <a href="#" class="post-link">ادامه مطلب</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container cta-box reveal">
+        <h2>آماده سفری به‌یادماندنی هستی؟</h2>
+        <p>همین حالا رزرو کن و از تخفیف اولین خرید بهره‌مند شو.</p>
+        <div class="cta-actions">
+          <a class="btn primary" href="#">شروع رزرو</a>
+          <a class="btn ghost" href="#destinations">مشاهده مقاصد</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="container foot-grid">
+      <div>
+        <h4>گردش‌آوا</h4>
+        <p class="muted">رزرو آنلاین تور و تجربه‌های سفر با پشتیبانی ۷/۲۴.</p>
+        <form class="newsletter" id="newsForm">
+          <input type="email" placeholder="ایمیل شما" required />
+          <button class="btn primary" type="submit">عضویت</button>
+        </form>
+      </div>
+      <div>
+        <h4>دسته‌بندی‌ها</h4>
+        <ul class="foot-links">
+          <li><a href="#">طبیعت‌گردی</a></li>
+          <li><a href="#">تور خارجی</a></li>
+          <li><a href="#">فرهنگی</a></li>
+          <li><a href="#">لاکچری</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>پشتیبانی</h4>
+        <ul class="foot-links">
+          <li><a href="#">سوالات متداول</a></li>
+          <li><a href="#">قوانین و حریم خصوصی</a></li>
+          <li><a href="#">ارتباط با ما</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>شبکه‌های اجتماعی</h4>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copy">© ۱۴۰۳ وب مانیا. تمامی حقوق محفوظ است.</div>
+  </footer>
+
+  <script src="script.js?v=1.3" defer></script>
+</body>
+</html>
