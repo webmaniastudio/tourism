@@ -231,3 +231,31 @@ body.menu-open{overflow:hidden}
 @media (prefers-reduced-motion: reduce){
   *{animation:none!important;transition:none!important}
 }
+/* ارتفاع هدر به صورت متغیر */
+:root{
+  --header-h: 70px;
+}
+@media (max-width:640px){
+  :root{ --header-h: 64px; }
+}
+
+/* خود هدر و فاصله‌ی امن برای ناچ */
+.site-header{
+  height: var(--header-h);
+  top: env(safe-area-inset-top, 0px);
+}
+
+/* محتوای صفحه از زیر هدر شروع شود */
+main{
+  padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px));
+}
+
+/* منوی موبایل: به‌جای 70px ثابت از متغیر استفاده شود */
+.mobile-menu{
+  inset: calc(var(--header-h) + env(safe-area-inset-top, 0px)) 0 auto 0;
+}
+
+/* اگر روی لینک‌های ناوبری اسکرول می‌کنی، سکشن‌ها هم آفست بگیرند */
+section[id]{
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
