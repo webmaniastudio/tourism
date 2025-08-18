@@ -1,4 +1,4 @@
-// v1.3 – فونت دکمه‌ها، شمارنده‌ها، انیمیشن تغییر تم، ریویل اسکرول
+// v1.5.0 – Mobile menu ثابت، سرچ دسکتاپ/موبایل پایدار
 (function(){
   const root = document.documentElement;
 
@@ -21,7 +21,7 @@
     const next = (root.getAttribute('data-theme') === 'dark') ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
-    themeToggle.classList.add('spin'); // انیمیشن آیکن
+    themeToggle.classList.add('spin');
     setIcon();
     setTimeout(()=>themeToggle.classList.remove('spin'), 600);
   });
@@ -35,31 +35,33 @@
     header.style.transform = window.scrollY > 10 ? 'translateY(-2px)' : 'translateY(0)';
   });
 
-  // Mobile menu
-  const hamburger = document.querySelector('.hamburger');
-  let panel = null;
-  if (hamburger) {
-    hamburger.addEventListener('click', () => {
-      if (!panel) {
-        panel = document.createElement('div');
-        panel.className = 'mobile-menu';
-        panel.innerHTML = `
-          <a href="#destinations">مقاصد</a>
-          <a href="#tours">تورهای ویژه</a>
-          <a href="#blog">مجله سفر</a>
-          <a href="#contact">تماس</a>
-        `;
-        document.body.appendChild(panel);
-      }
-      hamburger.classList.toggle('active');
-      panel.classList.toggle('open');
-    });
-  }
+  // Mobile menu (ثابت + بک‌دراپ + قفل اسکرول)
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('mobileMenu');
+  const backdrop = document.getElementById('menuBackdrop');
 
-  // Chips -> fill destination
-  const chips = document.querySelectorAll('.chip');
-  const qDest = document.getElementById('qDest');
-  chips.forEach(ch => ch.addEventListener('click', () => { if (qDest) qDest.value = ch.textContent.trim(); }));
+  const closeMenu = () => {
+    menu.classList.remove('open');
+    backdrop.classList.remove('show');
+    backdrop.setAttribute('hidden', '');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    menu.setAttribute('aria-hidden', 'true');
+  };
+  const openMenu = () => {
+    menu.classList.add('open');
+    backdrop.classList.add('show');
+    backdrop.removeAttribute('hidden');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+    menu.setAttribute('aria-hidden', 'false');
+  };
+
+  hamburger?.addEventListener('click', () => {
+    if (menu.classList.contains('open')) closeMenu(); else openMenu();
+  });
+  backdrop?.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
   // Date min=today
   const qDate = document.getElementById('qDate');
@@ -67,6 +69,7 @@
 
   // Search submit
   const searchForm = document.getElementById('searchForm');
+  const qDest = document.getElementById('qDest');
   searchForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     const people = document.getElementById('qPeople')?.value || '';
@@ -85,7 +88,7 @@
   }, {threshold:.2});
   revealEls.forEach(el => ioReveal.observe(el));
 
-  // Animated counters (robust – هر عدد جداگانه پایش می‌شود)
+  // Animated counters
   const prefersReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const nums = document.querySelectorAll('.num');
   const started = new WeakSet();

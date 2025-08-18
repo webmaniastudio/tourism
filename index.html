@@ -2,37 +2,51 @@
 <html lang="fa" dir="rtl" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>وب مانیا | ماجراجویی بعدی‌ات را پیدا کن</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>گردش‌آوا | ماجراجویی بعدی‌ات را پیدا کن</title>
   <meta name="description" content="پلتفرم رزرو تور و سفر با مقاصد محبوب، پیشنهادهای ویژه و محتوای الهام‌بخش برای گردشگران." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css?v=1.3" />
+  <link rel="stylesheet" href="style.css?v=1.5.0" />
 </head>
 <body>
   <header class="site-header reveal">
     <div class="container nav-row">
       <a class="brand" href="#"><i class="fa-solid fa-compass"></i> وب مانیا</a>
+
       <nav class="nav-desktop" aria-label="primary">
         <a href="#destinations" class="nav-link">مقاصد</a>
         <a href="#tours" class="nav-link">تورهای ویژه</a>
         <a href="#blog" class="nav-link">مجله سفر</a>
         <a href="#contact" class="nav-link">تماس</a>
       </nav>
+
       <div class="nav-actions">
-        <!-- دکمه تغییر تم با انیمیشن -->
         <button class="btn-icon" id="themeToggle" aria-label="تغییر به تم تاریک">
           <i class="fa-solid fa-moon"></i>
         </button>
-        <a class="btn ghost" href="#">ورود</a>
-        <a class="btn primary" href="#">ثبت‌نام</a>
-        <button class="hamburger" aria-label="منوی موبایل">
+        <a class="btn ghost hide-sm" href="#">ورود</a>
+        <a class="btn primary hide-sm" href="#">ثبت‌نام</a>
+        <button class="hamburger" id="hamburger" aria-label="باز کردن منو" aria-expanded="false" aria-controls="mobileMenu">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
+
+    <!-- منوی موبایل ثابت -->
+    <nav id="mobileMenu" class="mobile-menu" aria-label="mobile" aria-hidden="true">
+      <a href="#destinations">مقاصد</a>
+      <a href="#tours">تورهای ویژه</a>
+      <a href="#blog">مجله سفر</a>
+      <a href="#contact">تماس</a>
+      <div class="mobile-auth">
+        <a class="btn ghost" href="#">ورود</a>
+        <a class="btn primary" href="#">ثبت‌نام</a>
+      </div>
+    </nav>
+    <div id="menuBackdrop" class="menu-backdrop" hidden></div>
   </header>
 
   <main>
@@ -45,24 +59,24 @@
           <p class="animate-in" style="--d:.15s">تورهای طبیعت‌گردی، ساحلی و شهری با راهنمایان حرفه‌ای و ضمانت بهترین قیمت.</p>
 
           <form class="search-bar animate-in" style="--d:.25s" id="searchForm" aria-label="جستجوی تور">
-            <div class="field">
-              <i class="fa-solid fa-location-dot"></i>
-              <input id="qDest" type="text" placeholder="مقصد (مثلاً: استانبول، کیش...)" />
+            <button class="btn primary search-btn" type="submit" aria-label="جستجو">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span class="hide-xs">جستجو</span>
+            </button>
+            <div class="field field-people">
+              <i class="fa-solid fa-user-group"></i>
+              <input id="qPeople" type="number" min="1" value="2" inputmode="numeric" />
             </div>
-            <div class="field">
+            <div class="field field-date">
               <i class="fa-solid fa-calendar-days"></i>
               <input id="qDate" type="date" />
             </div>
-            <div class="field">
-              <i class="fa-solid fa-user-group"></i>
-              <input id="qPeople" type="number" min="1" value="2" />
+            <div class="field field-dest">
+              <i class="fa-solid fa-location-dot"></i>
+              <input id="qDest" type="text" placeholder="مقصد (مثلاً: استانبول، کیش...)" />
             </div>
-            <button class="btn primary" type="submit" aria-label="جستجو">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
           </form>
 
-          <!-- توجه: برای شروع شمارنده‌ها کلاس reveal اضافه شد -->
           <div class="stats reveal animate-in" style="--d:.35s">
             <div class="stat"><span class="num" data-target="120">0</span><span>مقصد</span></div>
             <div class="stat"><span class="num" data-target="380">0</span><span>تور فعال</span></div>
@@ -260,7 +274,6 @@
     <div class="copy">© ۱۴۰۳ وب مانیا. تمامی حقوق محفوظ است.</div>
   </footer>
 
-  <script src="script.js?v=1.3" defer></script>
+  <script src="script.js?v=1.5.0" defer></script>
 </body>
-
 </html>
